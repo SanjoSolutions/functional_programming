@@ -1,5 +1,7 @@
+import { processValueThroughFunctions } from './process.js'
+
 export function pipe(...functions) {
   return function (value) {
-    return functions.reduce((value, fn) => fn(value), value)
+    return processValueThroughFunctions(value, functions)
   }
 }
